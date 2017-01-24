@@ -3,21 +3,21 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 import NavBar from './components/NavBar';
+import PageA from './components/PageA';
+import PageB from './components/PageB';
+import App from './App';
 
 
 /* eslint-disable no-new */
 Vue.use(VueRouter);
-const errorLoad = (error) => {
-  console.log(error);
-};
 
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: resolve => System.import('./App').then(resolve).catch(errorLoad) },
-    { path: '/pageA', component: resolve => System.import('./components/PageA').then(resolve).catch(errorLoad) },
-    { path: '/pageB', component: resolve => System.import('./components/PageB').then(resolve).catch(errorLoad) },
+    { path: '/', component: App },
+    { path: '/pageA', component: PageA },
+    { path: '/pageB', component: PageB },
   ],
 });
 
